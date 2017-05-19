@@ -1,0 +1,11 @@
+********* Changes made **********************
+logout.php has been placed in the php folder has been tested and logs you out successfully back to the main home page.
+
+secure.php now has a fully function search engine in it that will search the vaportek website for any contacts that match a specific name e.g. scott.
+
+There are 2 connections in both the login.php and secure.php.
+
+There is one for xampp use and the other one for the fully operational website use.
+
+If you are going to test the website using xampp remember to comment out the main website database connection and uncomment out the xampp database connection.
+

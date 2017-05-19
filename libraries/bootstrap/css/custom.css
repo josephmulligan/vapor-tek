@@ -1,0 +1,288 @@
+/* 
+Author: Red House Associates (University of Bolton) 
+Details: Custom CSS for the template of the main page.
+Date: 17/11/2016, Thursday
+Version: 2.0
+*/
+
+
+/* Background * * * * * * * * * * * * * * * * * * * */
+
+body {
+  /*background-image: url(../sources/rust-texture-1.jpg);*/
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+}
+
+
+/* Headers * * * * * * * * * * * * * * * * * * * */
+
+
+/* Vapor-Tek Logo */
+
+#header1 {
+  background-color: rgba(0, 45, 100, 1.00);
+  height: 55px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+
+/* First border, blue shade 1 */
+
+#header2 {
+  background-color: rgba(0, 45, 100, 0.75);
+  height: 10px;
+}
+
+
+/* Second border, blue shade 2 */
+
+#header3 {
+  background-color: rgba(0, 45, 100, 0.50);
+  height: 10px;
+}
+
+
+/* Logo image itself */
+
+#brand-image {
+  /*margin-bottom: 5px;*/
+  margin-left: 5px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 0px;
+}
+
+
+/* Navbar margin */
+
+.navbar {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
+/* Navbar brand*/
+
+.navbar-brand {
+  font-size: 16px;
+}
+
+
+/* Social Media */
+
+.social-media-icons {
+  opacity: 0.5;
+  padding: 5px;
+}
+
+.social-media-icons:hover {
+  opacity: 1;
+}
+
+
+/* All links on the website * * * * * * * * * * * * * * * * * * * */
+
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+}
+
+
+/* Logo Header * * * * * * * * * * * * * * * * * * */
+
+
+/* Heading Background */
+
+header {
+  background: #002D64;
+  margin-bottom: 20px;
+  height: 60px;
+}
+
+
+/* Footer * * * * * * * * * * * * * * * * * * */
+
+
+/* ... */
+
+footer {
+  position: static;
+  margin-top: 0;
+  margin-bottom: 20px;
+  background: #002D64;
+  height: auto;
+  border-radius: 5px;
+  color: white;
+}
+
+
+/* <p> that's directly under footer */
+
+footer > p {
+  color: #FFF;
+  position: auto;
+  padding: 10px;
+  font-size: 14px;
+}
+
+
+/* Logo */
+
+#logo {
+  margin-left: 15px;
+  margin-top: 5px;
+  height: 50px;
+  width: 240px;
+}
+
+
+/* Introduction text on home page */
+
+.home-page-text {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/* Main Content * * * * * * * * * * * * * * * * * * */
+
+
+/* Only added when page has been scrolled down */
+
+.menu-padding {
+  padding-top: 80px;
+}
+
+
+/* Images */
+
+img {
+  padding: 5px;
+  border-radius: 10px;
+}
+
+
+/* Thumbnail image sizes for products in product page */
+
+.thumbnail > a > img {
+  height: 170px;
+  width: 340px;
+}
+
+
+/* Header 1 - Page title */
+
+h1 {
+  color: #002D64;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/* Header 2 - Page Section headings */
+
+h2 {
+  color: #002D64;
+  font-variant: small-caps;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/* Header 3 - Image headings and the FAQ page question headings */
+
+h3 {
+  color: rgba(0, 45, 100, 0.75);
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
+
+/* Header 4 - Image description */
+
+h4 {
+  color: rgba(0, 45, 100, 0.50);
+  font-variant: small-caps;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/* Main font in the FAQ page */
+
+.faq-page {
+  padding: 0px;
+  font-size: 16px;
+  color: rgba(0, 45, 100, 1.00);
+  margin: 0px;
+  border: none;
+}
+
+
+/* <p> in main container */
+
+p {
+  padding: 10px;
+  font-size: 16px;
+  color: rgba(0, 45, 100, 1.00);
+  border: 2px solid rgba(0, 45, 100, 0.75);
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.cablegard {
+  font-size: 20px;
+  color: rgba(0, 45, 100, 1.00);
+  font-weight: bolder;
+}
+
+
+/* Carousel */
+
+.carousel {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+
+/* Images on the carousel */
+
+.carousel-inner > .item > img
+/*,
+.carousel-inner > .item > a > img */
+
+{
+  width: 100%;
+  height: 400px;
+}
+
+.carousel-inner > .item > h3 {
+  color: rgba(0, 45, 100, 0.75);
+  background: rgba(0, 0, 0, 0.30);
+  font-variant: small-caps;
+  font-weight: bold;
+  text-align: center;
+  padding: 50px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 25px;
+}
+
+
+/* FAQ collapse the information */
+
+.faq-question {
+  cursor: pointer;
+}

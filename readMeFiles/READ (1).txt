@@ -1,0 +1,54 @@
+FILES:
+
+index.html	- main template
+/bootstrap	- all bootstrap
+/html 		- will hold the links (other pages)
+/php		- contact/login form
+/sources	- holds images (and other docs e.g. pdf if needed in the future)
+/dataSheets - holds all the data sheets for the products
+READ(1).txt - this file
+
+
+Completed: 
+
+	1. Social Media Icons.
+	2. When you scroll down the page, nav sticks to the top.
+	3. Added general styling to font, layout and images.
+	4. Adjusted the coding layout.
+	5. completed the carousel on home page 
+	6. added products page/ and each product pages aswell
+	7. sorted the css directy to bootstarp/css 
+	8. All of the templates are up (inc. FAQ)
+	9. Hidden Carousel when on Extra Small devices (phones)
+	10. Datasheets added as embedded pdf
+	11. need to know how the each product page is going to be styled - STYLED
+	12. Homepage bordering to the left issue FIXED
+	13. CSS folder has been deleted so there is no use of it.
+
+
+To Do:
+	
+	1. need to add product information on to each product page (currently lorem ipsum)
+	2. need some proper images for products and carousel
+	3. Comments still not added (suitably) everywhere
+	4. Add proper context to the content
+	5. ISO9001 images and links - Temporary image added
+
+
+
+COMMENTS: 
+
+// Peter, Scott, Dylan ***
+	
+	Is it necessary to keep the JQuery on the HTML pages, or can they be transfered to the JS file in bootstrap?
+
+	Should the contact.sql stay in the main area or be moved elsewhere? -- This has been moved as it is simply a configuration file.
+
+
+// Shewaib ***
+	
+	...
+
+// Jaleela ***
+
+	...

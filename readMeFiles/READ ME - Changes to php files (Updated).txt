@@ -1,0 +1,11 @@
+**************** Changes Made *******************
+
+Directory for login in Product pages has been fixed.
+
+Buttons have been removed as requested in secure.php.
+
+Duplicate Log-out has been implemented in the home button in secure.php
+
+Search engine is now fully working, button for all information has now been implemented too.
+
+Login now redirects straight to secure.php, but failed login produces no message yet.

@@ -1,0 +1,6 @@
+*** this change has been implimented ***
+
+In order to make sure that alphanumeric values cannot be entered, edit the "type" attribute of the 
+contact number <input> element from "text" to "number".
+
+<input type="number" name="number" id="number" class="form-control" placeholder="Please enter a contact number..." />

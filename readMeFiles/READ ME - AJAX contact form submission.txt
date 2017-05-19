@@ -1,0 +1,28 @@
+As me and Scott noticed, the geolocation of the contact form submission solely based on PHP is not very accurate.
+
+I have decided to have a go at using JavaScript/AJAX and PHP in order to get more accurate result - the code works
+on both the university network database (LAMP) and locally on XAMPP. The latitude and longitude that this code returns 
+appears to be much more accurate, as it shows the area I live in (although it did not get the exact address right).
+
+The last time me and Scott tested the AJAX-based submission it would submit empty values and the browser would not ask 
+for the permission to get the location. I managed to fix the first issue, however as far as the browser permission is concerned
+I really don't know what could be done to fix this, as it works on every platform (LAMP and XAMPP) that I tested it on.
+The only issue was with the live website - I did some online research and it looks like it should work even on a live website.
+
+I decided to keep the contact.php  and create an extra contactAjax.php file, just in case so if the AJAX-based submission does not work, we could easily go back 
+to the not very acccurate PHP submission. The steps to implement AJAX submission are as follows:
+
+1.Copy the contactAjax.php file from the /php folder to the /php folder on the live website.
+2.Copy the geolocation.js file from the /bootstrap/js folder to the /bootstrap/js folder on the live website
+3.Add the following line to the index.html file
+	<script type="text/javascript" src="bootstrap/js/geolocation.js"></script>
+4.Edit the <body> tag of the index.html file, so it looks like this:
+	<body onload="getLocation();">
+5.Edit the contact form <form> element so it does not contain the (action="php/contact.php" method="POST"):
+	<form class="form-horizontal" onsubmit="return check();"> 
+IT WOULD BE BEST TO KEEP THE action="php/contact.php" method="POST" SOMEWHERE, BECAUSE IF AJAX APPROACH DOES NOT WORK - WE WILL HAVE TO GO BACK TO PHP SUBMISSION, WHICH REQUIRES THOSE LINES
+6.Edit the <button> element of the contact form, so it has the onclick="submitInfo();":
+	<button type="submit" class="btn btn-primary" onclick="submitInfo();">
+
+OBVIOUSLY IF AJAX SUBMISSION DOESN'T WORK WE WILL HAVE TO USE THE PHP SUBMISSION, SO NATURALLY ALL THE ABOVE STEPS
+WOULD HAVE TO BE RETRACTED
