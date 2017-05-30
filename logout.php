@@ -1,4 +1,7 @@
 <?php
+//script which is run on clicking logout
+//simply sets the cookie as expired
+
 setcookie("loggedIn", "val", time() - 120, "/");
 header("Location: index.php");
 

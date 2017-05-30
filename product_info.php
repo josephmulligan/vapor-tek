@@ -1,27 +1,28 @@
 <?php
-  include('includes/header.php');
-  include('includes/nav.php');
-  include('includes/dbconnect.php');
-  $id = $_GET["id"];
+
+//information for products
+//requires a get variable $id which is used to load information from the products database
+include('includes/header.php');
+include('includes/nav.php');
+include('includes/dbconnect.php');
+$id = $_GET["id"];
 ?>
 
-  <!--Create a table for displaying the information about the product-->
+<!--Create a table for displaying the information about the product-->
+<?php
+$query = "SELECT * FROM products WHERE productID='$id';";
+$result = mysqli_query($conn, $query);
+$count = mysqli_num_rows($result);
 
-
-  <?php
-  $query = "SELECT * FROM products WHERE productID='$id';";
-
-  $result = mysqli_query($conn, $query);
-  $count = mysqli_num_rows($result);
-
-  if($count == 1) {
+if($count == 1) {
     //product found, load information
     $row = mysqli_fetch_array($result);
     $name = $row['name'];
     $desc = $row['description'];
     $price = $row['price'];
     $stock = $row['stock'];
-    
+
+    //create table
     echo"
     <div class='container'>
       <div class='text-uppercase text-center'><b>Product Information: $name</b></div><br/>
@@ -41,34 +42,34 @@
         <tr>
           <th scope='row'>Stock</th>
           <td ";
-    if($stock == 0) {
-      echo "style='color: red;'";
+    if($stock == 0) {//check stock and output red if the stock is now zero
+        echo "style='color: red;'";
     }
     echo ">".$stock."</td>
         </tr>
       </table>
     </div>
     ";
-  } else {
+} else {
     echo("ERROR: count = ".$count);
-  }
+}
 ?>
-    <div class="container">
-      <!--OK, so we have the information. Now let's handle order placement.-->
-      <div class="text-uppercase text-center"><b>Like this product? Why not place an order?</b></div>
-      <br/>
-      <form action='place_order.php' method='post'>
+<div class="container">
+    <!--create ordering form which goes to place_order.php-->
+    <div class="text-uppercase text-center"><b>Like this product? Why not place an order?</b></div>
+    <br/>
+    <form action='place_order.php' method='post'>
         <div class='form-group'>
-          <label for='product'>Product</label>
-          <input type='text' name='product' id='product' value='<?php echo $name; ?>' readonly>
+            <label for='product'>Product</label>
+            <input type='text' name='product' id='product' value='<?php echo $name; ?>' readonly>
         </div>
         <div class="form-group">
-          <label for='quantity'>Quantity</label>
-          <input type='number' name='quantity' id='quantity' min='0' />
+            <label for='quantity'>Quantity</label>
+            <input type='number' name='quantity' id='quantity' min='0' />
         </div>
         <button class="btn btn-success" type='submit' style="display: block; width: 100%;">Place Order</button>
-      </form>
-    </div>
-    <?php
-    include('includes/footer.php');
+    </form>
+</div>
+<?php
+include('includes/footer.php');
 ?>

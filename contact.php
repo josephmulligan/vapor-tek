@@ -3,6 +3,51 @@ include('includes/header.php');
 include('includes/dbconnect.php');
 
 
+//PHP code which is run on completing the contact form
+//should send the form to the administrator
+//admin email: colin@vapor-tek.co.uk
+
+// POST variables (from the html form)
+if (isset($_POST['name'])){
+    $name = $_POST['name'];
+}
+if (isset($_POST['email'])){
+    $email = $_POST['email'];
+}
+if (isset($_POST['message'])){
+    $message = $_POST['message'];
+}
+if (!isset($_POST['callback'])){
+    $callback = "no";
+}else if(isset($_POST['callback'])){
+    $callback = $_POST['callback'];
+}
+if(empty($_POST['number'])) {
+    $number = "No number provided";
+}else if(!empty($_POST['number'])){
+    $number = $_POST['number'];
+}
+
+/*
+Construct message to send
+Should be in the form:
+
+  Name: {name}
+  Email: {email}
+
+    Message
+
+  Requested callback: {Y/N}
+  Contact Number: {number}
+
+*/
+
+//<hr/> tags produce a horizontal line beneath the paragraph (basically a fancy <br/>)
+$message = "Email: ".$email."<br/>Name: ".$name."<hr/>Message: ".$message."<hr/>Callback Requested: ".$callback."<br/>Tel.: ".$number.".";
+
+//all contact forms should be sent to the administrator
+message_user("colin@vapor-tek.co.uk", $message);
+header("Location: index.php");
 
 include('includes/footer.php');
 
@@ -124,7 +169,7 @@ echo "<h3 align=center><i>You will now be re-directed to our home page</i></h3>"
 // Set the format of the email using the function above
 	$message .= "<br /> First Name: ".clean_string($name)."\n";
     $message .= "<br />Telephone: ".clean_string($number)."\n";
-	
+
 	if($number != "null"){
 		// create email headers when number supplied (set higher priority of the email)
 		$headers = 'From: '.$email."\r\n".
@@ -150,4 +195,5 @@ $mysqli_obj->close();
 
   </body>
 
-  </html>*/?>
+  </html>*/
+?>
