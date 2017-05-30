@@ -1,36 +1,41 @@
 <?php
-  $cookie_name = "loggedIn";
-  include('includes/header.php');
 
-  //connection to database
-  include('includes/dbconnect.php');
+//script which is run on user login
+//passwords are checked against the SHA-1 hash stored in the database
+//also in this file set the cookie which contains the user email, with a name loggedIn
 
-    //login details - username and password. (password will be stored as a hash)
-    $user = $_POST['userId'];
-    $pass = $_POST['userPw'];
+$cookie_name = "loggedIn";
+include('includes/header.php');
 
-    //hash the password using the SHA-1 hash.
-    //$pHash = sha1(sha1($pass."salt")."salt");
+//connection to database
+include('includes/dbconnect.php');
 
-    //check the details against the database.
-    $query = "SELECT * FROM users WHERE email='$user' AND password='$pass';";
-    $result = mysqli_query($conn, $query);
-    $count = mysqli_num_rows($result);
+//login details - username and password. (password will be stored as a hash)
+$user = $_POST['userId'];
+$pass = $_POST['userPw'];
 
-    if($count == 1) {
-      $cookie_value = $user;
-      setcookie($cookie_name, $cookie_value, time() + 1800, "/");
-      header("location: user_search.php");
-    } else {
-      header("Refresh: 5; URL=index.php#login"); // For incorrect login attempts
-      echo  " <div class='container'>
+//hash the password using the SHA-1 hash.
+$pHash = sha1(sha1($pass."salt")."salt");
+
+//check the details against the database.
+$query = "SELECT * FROM users WHERE email='$user' AND password='$pHash';";
+$result = mysqli_query($conn, $query);
+$count = mysqli_num_rows($result);
+
+if($count == 1) {
+    $cookie_value = $user;
+    setcookie($cookie_name, $cookie_value, time() + 1800, "/");
+    header("location: index.php");
+} else {
+    header("Refresh: 5; URL=index.php#login"); // For incorrect login attempts
+    echo  " <div class='container'>
                 <p class='text-danger alert-danger'>Login Failed. Please enter correct login details.<br/>
                   Redirecting back to Home Page...
                 </p>
               </div>";
-    }
+}
 
-  include('includes/footer.php');
+include('includes/footer.php');
 
 /////////////////OLD CODE BELOW THIS LINE///////////////////
 // //   include('includes/header.php');
